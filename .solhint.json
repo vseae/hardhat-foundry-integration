@@ -11,7 +11,7 @@
                 "ignoreConstructors": true
             }
         ],
-        "prettier/prettier": "warn",
+        "prettier/prettier": "error",
         "not-rely-on-time": "off",
         "reason-string": "off",
         "no-empty-blocks": "off",
