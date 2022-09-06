@@ -69,14 +69,17 @@ const config: HardhatUserConfig = {
   networks: {
     mainnet: {
       ...userNetworkConfig,
+      chainId: 1,
       url: `https://mainnet.infura.io/v3/${INFURA_KEY}`,
     },
     rinkeby: {
       ...userNetworkConfig,
+      chainId: 4,
       url: `https://rinkeby.infura.io/v3/${INFURA_KEY}`,
     },
     goerli: {
       ...userNetworkConfig,
+      chainId: 5,
       url: `https://goerli.infura.io/v3/${INFURA_KEY}`,
     },
   },
