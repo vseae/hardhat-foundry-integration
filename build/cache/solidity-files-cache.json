@@ -1,0 +1,47 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/levy/files/projects/ethdev/hardhat-startup/contracts/Lock.sol": {
+      "lastModificationDate": 1662444298287,
+      "contentHash": "f7e8de216c0ed9ae095401a04999799d",
+      "sourceName": "contracts/Lock.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 999999
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "storageLayout",
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.9"
+      ],
+      "artifacts": [
+        "Lock"
+      ]
+    }
+  }
+}

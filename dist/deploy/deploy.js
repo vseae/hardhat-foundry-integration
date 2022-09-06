@@ -6,7 +6,7 @@ const func = async function (hre) {
     const { deploy } = deployments;
     const { deployer } = await getNamedAccounts();
 };
-//await hre.storageLayout.export();
+//
 async function main() {
     const currentTimestampInSeconds = Math.round(Date.now() / 1000);
     const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;

@@ -10,8 +10,16 @@ require("hardhat-abi-exporter");
 require("hardhat-tracer");
 require("hardhat-storage-layout");
 const dotenv_1 = __importDefault(require("dotenv"));
+const yargs_1 = __importDefault(require("yargs"));
 //load environment variables from .env file
 dotenv_1.default.config();
+const argv = yargs_1.default
+    .option("network", {
+    type: "string",
+    default: "hardhat",
+})
+    .help(false)
+    .version(false).argv;
 // hardhat config
 const config = {
     paths: {
