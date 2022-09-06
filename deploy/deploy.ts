@@ -1,4 +1,11 @@
-import { ethers } from "hardhat";
+import { HardhatRuntimeEnvironment } from "hardhat/types";
+import { DeployFunction } from "hardhat-deploy/types";
+import { parseEther } from "ethers/lib/utils";
+const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+  const { deployments, getNamedAccounts } = hre;
+  const { deploy } = deployments;
+  const { deployer } = await getNamedAccounts();
+};
 
 async function main() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
