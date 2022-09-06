@@ -11,8 +11,15 @@ require("hardhat-tracer");
 require("hardhat-storage-layout");
 const dotenv_1 = __importDefault(require("dotenv"));
 const yargs_1 = __importDefault(require("yargs"));
+const undici_1 = require("undici");
+require("./scripts/tasks/deploy_verify");
+// proxy
+const proxyAgent = new undici_1.ProxyAgent("http://127.0.0.1:7890");
+(0, undici_1.setGlobalDispatcher)(proxyAgent);
 //load environment variables from .env file
 dotenv_1.default.config();
+const { NODE_URL, INFURA_KEY, MNEMONIC, ETHERSCAN_API_KEY } = process.env;
+const PK = process.env.PK?.split(",");
 const argv = yargs_1.default
     .option("network", {
     type: "string",
@@ -20,6 +27,20 @@ const argv = yargs_1.default
 })
     .help(false)
     .version(false).argv;
+const DEFAULT_MNEMONIC = "chronic melody eager cool strike gate ordinary puppy merit beef insane exhaust";
+const userNetworkConfig = {};
+if (PK) {
+    userNetworkConfig.accounts = PK;
+}
+else {
+    userNetworkConfig.accounts = {
+        mnemonic: MNEMONIC || DEFAULT_MNEMONIC,
+    };
+}
+if (["mainnet", "rinkeby", "goerli"].includes(argv.network) &&
+    INFURA_KEY === undefined) {
+    throw new Error(`Could not find Infura key in env, unable to connect to network ${argv.network}`);
+}
 // hardhat config
 const config = {
     paths: {
@@ -43,6 +64,36 @@ const config = {
             },
         },
     },
+    networks: {
+        hardhat: {
+            chainId: 31337,
+            blockGasLimit: 100000000,
+            gas: 100000000,
+        },
+        mainnet: {
+            ...userNetworkConfig,
+            chainId: 1,
+            url: `https://mainnet.infura.io/v3/${INFURA_KEY}`,
+        },
+        rinkeby: {
+            ...userNetworkConfig,
+            chainId: 4,
+            url: `https://rinkeby.infura.io/v3/${INFURA_KEY}`,
+        },
+        goerli: {
+            ...userNetworkConfig,
+            chainId: 5,
+            url: `https://goerli.infura.io/v3/${INFURA_KEY}`,
+        },
+    },
+    namedAccounts: {
+        deployer: 0,
+        bob: 1,
+        alice: 2,
+    },
+    etherscan: {
+        apiKey: ETHERSCAN_API_KEY,
+    },
     abiExporter: {
         path: "./build/abi",
         runOnCompile: true,
@@ -51,5 +102,14 @@ const config = {
         spacing: 2,
         format: "json",
     },
+    mocha: {
+        timeout: 20000000,
+    },
 };
+if (NODE_URL) {
+    config.networks.custom = {
+        ...userNetworkConfig,
+        url: NODE_URL,
+    };
+}
 exports.default = config;

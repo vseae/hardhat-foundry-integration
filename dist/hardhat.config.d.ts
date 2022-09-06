@@ -1,9 +1,10 @@
-import { HardhatUserConfig } from "hardhat/config";
+import { HardhatUserConfig } from "hardhat/types";
 import "hardhat-deploy";
 import "@nomicfoundation/hardhat-toolbox";
 import "hardhat-contract-sizer";
 import "hardhat-abi-exporter";
 import "hardhat-tracer";
 import "hardhat-storage-layout";
+import "./scripts/tasks/deploy_verify";
 declare const config: HardhatUserConfig;
 export default config;

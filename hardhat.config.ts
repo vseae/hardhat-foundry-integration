@@ -7,16 +7,16 @@ import "hardhat-tracer";
 import "hardhat-storage-layout";
 import dotenv from "dotenv";
 import yargs from "yargs";
-import { userConfig } from "hardhat";
 import { ProxyAgent, setGlobalDispatcher } from "undici";
-
+import "./scripts/tasks/deploy_verify";
 // proxy
 const proxyAgent: ProxyAgent = new ProxyAgent("http://127.0.0.1:7890");
 setGlobalDispatcher(proxyAgent);
 
 //load environment variables from .env file
 dotenv.config();
-const { NODE_URL, INFURA_KEY, MNEMONIC, ETHERSCAN_API_KEY, PK } = process.env;
+const { NODE_URL, INFURA_KEY, MNEMONIC, ETHERSCAN_API_KEY } = process.env;
+const PK = process.env.PK?.split(",");
 const argv = yargs
   .option("network", {
     type: "string",
@@ -28,7 +28,7 @@ const DEFAULT_MNEMONIC =
   "chronic melody eager cool strike gate ordinary puppy merit beef insane exhaust";
 const userNetworkConfig: HttpNetworkUserConfig = {};
 if (PK) {
-  userNetworkConfig.accounts = [PK];
+  userNetworkConfig.accounts = PK;
 } else {
   userNetworkConfig.accounts = {
     mnemonic: MNEMONIC || DEFAULT_MNEMONIC,
@@ -67,6 +67,11 @@ const config: HardhatUserConfig = {
     },
   },
   networks: {
+    hardhat: {
+      chainId: 31337,
+      blockGasLimit: 100000000,
+      gas: 100000000,
+    },
     mainnet: {
       ...userNetworkConfig,
       chainId: 1,
@@ -85,9 +90,13 @@ const config: HardhatUserConfig = {
   },
   namedAccounts: {
     deployer: 0,
+    bob: 1,
+    alice: 2,
   },
-  etherscan: {
-    apiKey: ETHERSCAN_API_KEY,
+  verify: {
+    etherscan: {
+      apiKey: ETHERSCAN_API_KEY,
+    },
   },
   abiExporter: {
     path: "./build/abi",
@@ -102,7 +111,7 @@ const config: HardhatUserConfig = {
   },
 };
 if (NODE_URL) {
-  userConfig.networks!.custom = {
+  config.networks!.custom = {
     ...userNetworkConfig,
     url: NODE_URL,
   };
