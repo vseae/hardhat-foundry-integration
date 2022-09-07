@@ -5,6 +5,7 @@ import "hardhat-contract-sizer";
 import "hardhat-abi-exporter";
 import "hardhat-tracer";
 import "hardhat-storage-layout";
+import "hardhat-gas-reporter";
 import dotenv from "dotenv";
 import yargs from "yargs";
 import { ProxyAgent, setGlobalDispatcher } from "undici";
@@ -111,6 +112,11 @@ const config: HardhatUserConfig = {
     disambiguatePaths: false,
     runOnCompile: true,
     strict: true,
+  },
+  gasReporter: {
+    enabled: true,
+    currency: "USD",
+    gasPrice: 21,
   },
   mocha: {
     timeout: 20000000,

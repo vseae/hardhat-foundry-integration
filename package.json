@@ -39,9 +39,9 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^1.0.2",
     "@shopify/eslint-plugin": "^42.0.1",
+    "@types/yargs": "^15.0.10",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
-    "@types/yargs": "^15.0.10",
     "dotenv": "^8.0.0",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^6.15.0",
@@ -53,6 +53,7 @@
     "hardhat-abi-exporter": "^2.10.0",
     "hardhat-contract-sizer": "^2.6.1",
     "hardhat-deploy": "^0.11.13",
+    "hardhat-gas-reporter": "^1.0.9",
     "hardhat-storage-layout": "^0.1.6",
     "hardhat-tracer": "^1.1.0-rc.9",
     "husky": "^8.0.1",
