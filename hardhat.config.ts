@@ -106,6 +106,12 @@ const config: HardhatUserConfig = {
     spacing: 2,
     format: "json",
   },
+  contractSizer: {
+    alphaSort: true,
+    disambiguatePaths: false,
+    runOnCompile: true,
+    strict: true,
+  },
   mocha: {
     timeout: 20000000,
   },

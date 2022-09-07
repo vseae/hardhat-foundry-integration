@@ -91,8 +91,10 @@ const config = {
         bob: 1,
         alice: 2,
     },
-    etherscan: {
-        apiKey: ETHERSCAN_API_KEY,
+    verify: {
+        etherscan: {
+            apiKey: ETHERSCAN_API_KEY,
+        },
     },
     abiExporter: {
         path: "./build/abi",

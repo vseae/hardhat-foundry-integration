@@ -9,7 +9,7 @@
         "version": "0.8.12",
         "settings": {
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 999999
           },
           "outputSelection": {
@@ -31,7 +31,7 @@
             }
           },
           "metadata": {
-            "useLiteralContent": true
+            "useLiteralContent": false
           }
         }
       },
@@ -44,14 +44,14 @@
       ]
     },
     "/Users/levy/files/projects/ethdev/hardhat-startup/contracts/MyToken.sol": {
-      "lastModificationDate": 1662457287349,
+      "lastModificationDate": 1662457290914,
       "contentHash": "8b566270cadaceb1a5e57c65caf7ae19",
       "sourceName": "contracts/MyToken.sol",
       "solcConfig": {
         "version": "0.8.12",
         "settings": {
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 999999
           },
           "outputSelection": {
@@ -73,7 +73,7 @@
             }
           },
           "metadata": {
-            "useLiteralContent": true
+            "useLiteralContent": false
           }
         }
       },
@@ -95,7 +95,7 @@
         "version": "0.8.12",
         "settings": {
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 999999
           },
           "outputSelection": {
@@ -117,7 +117,7 @@
             }
           },
           "metadata": {
-            "useLiteralContent": true
+            "useLiteralContent": false
           }
         }
       },
@@ -141,7 +141,7 @@
         "version": "0.8.12",
         "settings": {
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 999999
           },
           "outputSelection": {
@@ -163,7 +163,7 @@
             }
           },
           "metadata": {
-            "useLiteralContent": true
+            "useLiteralContent": false
           }
         }
       },
@@ -183,7 +183,7 @@
         "version": "0.8.12",
         "settings": {
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 999999
           },
           "outputSelection": {
@@ -205,7 +205,7 @@
             }
           },
           "metadata": {
-            "useLiteralContent": true
+            "useLiteralContent": false
           }
         }
       },
@@ -225,7 +225,7 @@
         "version": "0.8.12",
         "settings": {
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 999999
           },
           "outputSelection": {
@@ -247,7 +247,7 @@
             }
           },
           "metadata": {
-            "useLiteralContent": true
+            "useLiteralContent": false
           }
         }
       },
