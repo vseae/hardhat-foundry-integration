@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "quick start of hardhat pre-built projects",
   "scripts": {
-    "n": "hardhat node",
+    "n": "hardhat node --no-deploy",
     "build": "yarn rimraf build && hardhat compile",
     "build:ts": "yarn rimraf dist && tsc",
     "test": "hardhat test --network localhost",
@@ -22,7 +22,10 @@
     "merge": "sol-merger \"./contracts/**/*.sol\" ./flat",
     "prepack": "yarn build",
     "prepare": "husky install",
-    "prepublish": "yarn build && yarn build:ts"
+    "prepublish": "yarn build",
+    "verify:goerli": "hardhat etherscan-verify --network goerli --license MIT --force-license",
+    "verify:fantomTest": "hardhat etherscan-verify --network fantomTest --license MIT --force-license --api-key",
+    "verify:mumbai": "hardhat etherscan-verify --network mumbai --license MIT --force-license --api-key"
   },
   "repository": {
     "type": "git",
@@ -38,6 +41,7 @@
   "//": "toolbox=>ethers,hardhat-ethers,mocha,chai,hardhat-chai-matchers,hardhat-network-helpers,hardhat-etherscan,hardhat-gas-reporter,solidity-coveragee,Typechain",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+    "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@^0.3.0-beta.13",
     "@shopify/eslint-plugin": "^42.0.1",
     "@types/yargs": "^15.0.10",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
@@ -48,7 +52,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-no-only-tests": "^2.4.0",
     "eslint-plugin-prettier": "^3.4.1",
-    "ethers": "^5.7.0",
+    "ethers": "^5.7.2",
     "hardhat": "^2.11.0",
     "hardhat-abi-exporter": "^2.10.0",
     "hardhat-contract-sizer": "^2.6.1",

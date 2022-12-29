@@ -8,15 +8,21 @@ import "hardhat-storage-layout";
 import "hardhat-gas-reporter";
 import dotenv from "dotenv";
 import yargs from "yargs";
-import { ProxyAgent, setGlobalDispatcher } from "undici";
-import "./scripts/tasks/deploy_verify";
+// import { ProxyAgent, setGlobalDispatcher } from "undici";
+import "./scripts/tasks/deploy-verify";
 // proxy
-const proxyAgent: ProxyAgent = new ProxyAgent("http://127.0.0.1:7890");
-setGlobalDispatcher(proxyAgent);
+// const proxyAgent: ProxyAgent = new ProxyAgent("http://127.0.0.1:7890");
+// setGlobalDispatcher(proxyAgent);
 
 //load environment variables from .env file
 dotenv.config();
-const { NODE_URL, INFURA_KEY, MNEMONIC, ETHERSCAN_API_KEY } = process.env;
+const {
+  NODE_URL,
+  INFURA_KEY,
+  MNEMONIC,
+  ETHERSCAN_API_KEY,
+  FANTOMTEST_SCAN_API_KEY,
+} = process.env;
 const PK = process.env.PK?.split(",");
 const argv = yargs
   .option("network", {
@@ -25,8 +31,7 @@ const argv = yargs
   })
   .help(false)
   .version(false).argv;
-const DEFAULT_MNEMONIC =
-  "chronic melody eager cool strike gate ordinary puppy merit beef insane exhaust";
+const DEFAULT_MNEMONIC = "";
 const userNetworkConfig: HttpNetworkUserConfig = {};
 if (PK) {
   userNetworkConfig.accounts = PK;
@@ -58,7 +63,7 @@ const config: HardhatUserConfig = {
     settings: {
       optimizer: {
         enabled: true,
-        runs: 999999,
+        runs: 10000,
       },
       outputSelection: {
         "*": {
@@ -72,6 +77,7 @@ const config: HardhatUserConfig = {
       chainId: 31337,
       blockGasLimit: 100000000,
       gas: 100000000,
+      allowUnlimitedContractSize: false,
     },
     mainnet: {
       ...userNetworkConfig,
@@ -87,6 +93,23 @@ const config: HardhatUserConfig = {
       ...userNetworkConfig,
       chainId: 5,
       url: `https://goerli.infura.io/v3/${INFURA_KEY}`,
+      // gas: 10000000,
+      // gasPrice: 1e8,
+    },
+    sepolia: {
+      ...userNetworkConfig,
+      chainId: 11155111,
+      url: `https://sepolia.infura.io/v3/${INFURA_KEY}`,
+    },
+    fantomTest: {
+      ...userNetworkConfig,
+      chainId: 4002,
+      url: `https://fantom-testnet.public.blastapi.io`,
+    },
+    mumbai: {
+      ...userNetworkConfig,
+      chainId: 80001,
+      url: `https://polygon-testnet.public.blastapi.io`,
     },
   },
   namedAccounts: {
@@ -94,18 +117,18 @@ const config: HardhatUserConfig = {
     bob: 1,
     alice: 2,
   },
-  verify: {
-    etherscan: {
-      apiKey: ETHERSCAN_API_KEY,
-    },
-  },
   abiExporter: {
     path: "./build/abi",
     runOnCompile: true,
     clear: true,
     flat: false,
     spacing: 2,
-    format: "json",
+    pretty: true,
+  },
+  verify: {
+    etherscan: {
+      apiKey: ETHERSCAN_API_KEY,
+    },
   },
   contractSizer: {
     alphaSort: true,
