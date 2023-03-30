@@ -84,11 +84,6 @@ const config: HardhatUserConfig = {
       chainId: 1,
       url: `https://mainnet.infura.io/v3/${INFURA_KEY}`,
     },
-    rinkeby: {
-      ...userNetworkConfig,
-      chainId: 4,
-      url: `https://rinkeby.infura.io/v3/${INFURA_KEY}`,
-    },
     goerli: {
       ...userNetworkConfig,
       chainId: 5,
@@ -110,6 +105,11 @@ const config: HardhatUserConfig = {
       ...userNetworkConfig,
       chainId: 80001,
       url: `https://polygon-testnet.public.blastapi.io`,
+    },
+    arbgoerli: {
+      ...userNetworkConfig,
+      chainId: 421613,
+      url: `https://endpoints.omniatech.io/v1/arbitrum/goerli/public`,
     },
   },
   namedAccounts: {
