@@ -1,6 +1,17 @@
 [profile.default]
 src = 'contracts'
-out = 'out'
+out = 'build/out'
+cache_path = 'build/cache_forge'
 libs = ['node_modules', 'lib']
-test = 'test'
-cache_path = 'cache_forge'
+test = 'test/foundry'
+
+[profile.endpoints]
+goerli = "${GOERLI_RPC_URL}"
+local = "http://127.0.0.1:8545"
+sepolia = "${SEPOLIA_RPC_URL}"
+
+[profile.compilers]
+solc = "0.8.19"
+
+[etherscan]
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config
