@@ -42,6 +42,7 @@
   "license": "MIT",
   "//": "toolbox=>ethers,hardhat-ethers,mocha,chai,hardhat-chai-matchers,hardhat-network-helpers,hardhat-etherscan,hardhat-gas-reporter,solidity-coveragee,Typechain",
   "devDependencies": {
+    "@nomicfoundation/hardhat-foundry": "^1.0.1",
     "@nomicfoundation/hardhat-toolbox": "^1.0.2",
     "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@^0.3.0-beta.13",
     "@shopify/eslint-plugin": "^42.0.1",
