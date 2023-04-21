@@ -1,6 +1,6 @@
 # hardhat-foundry-integration
 
-```json
+```
 .
 ├── LICENSE //开源协议
 ├── README.md // README
