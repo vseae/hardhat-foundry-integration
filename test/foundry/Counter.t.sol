@@ -2,7 +2,7 @@
 pragma solidity ^0.8.13;
 
 import {Test, console2} from "forge-std/Test.sol";
-import {Counter} from "../src/Counter.sol";
+import {Counter} from "../../contracts/Counter.sol";
 
 contract CounterTest is Test {
     Counter public counter;
@@ -14,6 +14,7 @@ contract CounterTest is Test {
     }
 
     // test开头作为测试用例
+    /* solhint-disable */
     function testIncrement() public {
         counter.increment();
         console2.log("counter.number() = ", counter.number());

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 import {Test} from "forge-std/Test.sol";
-import {ExpectEmit} from "../src/ExpectEmit.sol";
+import {ExpectEmit} from "../../contracts/ExpectEmit.sol";
 
 contract ExpectEmitTest is Test {
     event Transfer(address indexed from, address indexed to, uint256 value);

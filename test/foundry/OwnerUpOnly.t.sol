@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 import {Test, console2} from "forge-std/Test.sol";
-import {OwnerUpOnly, Unauthorized} from "../src/OwnerUpOnly.sol";
+import {OwnerUpOnly, Unauthorized} from "../../contracts/OwnerUpOnly.sol";
 
 contract OwnerUpOnlyTest is Test {
     OwnerUpOnly upOnly;
