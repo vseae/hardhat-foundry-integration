@@ -10,6 +10,4 @@
 [submodule "lib/murky"]
 	path = lib/murky
 	url = https://github.com/dmfxyz/murky
-[submodule "lib/openzeppelin-upgrades"]
-	path = lib/openzeppelin-upgrades
-	url = https://github.com/OpenZeppelin/openzeppelin-upgrades
+
