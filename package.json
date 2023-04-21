@@ -21,7 +21,7 @@
     "fmt:ts": "prettier --write '**/*.ts'",
     "merge": "sol-merger \"./contracts/**/*.sol\" ./flat",
     "prepack": "yarn build",
-    "prepare": "husky install",
+    "prepare": "",
     "prepublish": "yarn build",
     "verify:goerli": "hardhat etherscan-verify --network goerli --license MIT --force-license",
     "verify:sepolia": "hardhat etherscan-verify --network sepolia --license MIT --force-license",
