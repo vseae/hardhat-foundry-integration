@@ -16,13 +16,7 @@ import "./scripts/tasks/deploy-verify";
 
 //load environment variables from .env file
 dotenv.config();
-const {
-  NODE_URL,
-  INFURA_KEY,
-  MNEMONIC,
-  ETHERSCAN_API_KEY,
-  FANTOMTEST_SCAN_API_KEY,
-} = process.env;
+const { NODE_URL, INFURA_KEY, MNEMONIC, ETHERSCAN_API_KEY } = process.env;
 const PK = process.env.PK?.split(",");
 const argv = yargs
   .option("network", {
@@ -77,7 +71,6 @@ const config: HardhatUserConfig = {
       chainId: 31337,
       blockGasLimit: 100000000,
       gas: 100000000,
-      allowUnlimitedContractSize: false,
     },
     mainnet: {
       ...userNetworkConfig,
@@ -106,16 +99,16 @@ const config: HardhatUserConfig = {
       chainId: 80001,
       url: `https://polygon-testnet.public.blastapi.io`,
     },
-    arbgoerli: {
-      ...userNetworkConfig,
-      chainId: 421613,
-      url: `https://endpoints.omniatech.io/v1/arbitrum/goerli/public`,
-    },
   },
   namedAccounts: {
     deployer: 0,
     bob: 1,
     alice: 2,
+  },
+  verify: {
+    etherscan: {
+      apiKey: ETHERSCAN_API_KEY,
+    },
   },
   abiExporter: {
     path: "./build/abi",
@@ -124,11 +117,6 @@ const config: HardhatUserConfig = {
     flat: false,
     spacing: 2,
     pretty: true,
-  },
-  verify: {
-    etherscan: {
-      apiKey: ETHERSCAN_API_KEY,
-    },
   },
   contractSizer: {
     alphaSort: true,

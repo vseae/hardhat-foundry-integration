@@ -1,7 +1,7 @@
 {
-  "name": "hardhat-startup",
+  "name": "hardhat-foundry-integration",
   "version": "1.0.0",
-  "description": "quick start of hardhat pre-built projects",
+  "description": "solution integrating the Hardhat and Foundry frameworks",
   "scripts": {
     "n": "hardhat node --no-deploy",
     "build": "yarn rimraf build && hardhat compile",
@@ -24,19 +24,21 @@
     "prepare": "husky install",
     "prepublish": "yarn build",
     "verify:goerli": "hardhat etherscan-verify --network goerli --license MIT --force-license",
+    "verify:sepolia": "hardhat etherscan-verify --network sepolia --license MIT --force-license",
     "verify:fantomTest": "hardhat etherscan-verify --network fantomTest --license MIT --force-license --api-key",
     "verify:mumbai": "hardhat etherscan-verify --network mumbai --license MIT --force-license --api-key"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:7Levy/hardhat-startup.git"
+    "url": "git@github.com:vseae/hardhat-startup.git"
   },
   "keywords": [
     "hardhat",
     "startup",
-    "solidity"
+    "solidity",
+    "foundry"
   ],
-  "author": "7Levy",
+  "author": "vseae",
   "license": "MIT",
   "//": "toolbox=>ethers,hardhat-ethers,mocha,chai,hardhat-chai-matchers,hardhat-network-helpers,hardhat-etherscan,hardhat-gas-reporter,solidity-coveragee,Typechain",
   "devDependencies": {
