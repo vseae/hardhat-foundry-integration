@@ -73,8 +73,6 @@
     "yargs": "^16.1.1"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.7.3",
-    "@openzeppelin/contracts-upgradeable": "^4.7.3",
     "undici": "^5.8.0"
   }
 }
