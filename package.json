@@ -23,7 +23,7 @@
     "prepare": "",
     "prepublish": "yarn build",
     "verify:goerli": "hardhat etherscan-verify --network goerli --license MIT --force-license",
-    "verify:sepolia": "hardhat etherscan-verify --network sepolia --license MIT --force-license",
+    "verify:sepolia": "hardhat etherscan-verify --network sepolia --license MIT --force-license --api-url https://api-sepolia.etherscan.io/",
     "verify:fantomTest": "hardhat etherscan-verify --network fantomTest --license MIT --force-license --api-key",
     "verify:mumbai": "hardhat etherscan-verify --network mumbai --license MIT --force-license --api-key"
   },
