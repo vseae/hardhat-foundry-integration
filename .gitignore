@@ -10,7 +10,6 @@ cache_forge
 # Ignores development broadcast logs
 broadcast
 deployments
-flat
 # Docs
 docs/
 
