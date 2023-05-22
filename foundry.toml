@@ -11,7 +11,7 @@ local = "http://127.0.0.1:8545"
 sepolia = "${SEPOLIA_RPC_URL}"
 
 [profile.compilers]
-solc = "0.8.19"
+solc = "0.8.20"
 
 [etherscan]
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
