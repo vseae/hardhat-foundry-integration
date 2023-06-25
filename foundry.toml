@@ -17,3 +17,7 @@ sepolia = "${SEPOLIA_RPC_URL}"
 
 [etherscan]
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
+sepolia = { key = "${ETHERSCAN_API_KEY}" }
+goerli = { key = "${ETHERSCAN_API_KEY}" }
+mumbai = { key = "${MUMBAI_SCAN_API_KEY}" }
+fantom_testnet = { key = "${FANTOMTEST_SCAN_API_KEY}" }
