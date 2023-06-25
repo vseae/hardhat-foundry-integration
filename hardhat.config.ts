@@ -1,6 +1,5 @@
 import { HttpNetworkUserConfig, HardhatUserConfig } from "hardhat/types";
 import "hardhat-deploy";
-import "@nomicfoundation/hardhat-toolbox";
 import "@nomicfoundation/hardhat-foundry";
 import "hardhat-abi-exporter";
 import dotenv from "dotenv";
