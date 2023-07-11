@@ -21,11 +21,20 @@ contract Manager is AccessControl, Ownable, Pausable {
         live = _live;
     }
 
-    function grantRole(bytes32 role, address account) external virtual onlyOwner {
+    function grantRole(bytes32 role, address account) public virtual override onlyOwner {
         _grantRole(role, account);
     }
 
-    function revokeRole(bytes32 role, address account) external virtual onlyOwner {
+    function revokeRole(bytes32 role, address account) public virtual override onlyOwner {
         _revokeRole(role, account);
     }
+
+    function grantOperatorRole(address account) external virtual onlyOwner {
+        _grantRole(OPERATOR, account);
+    }
+
+    function revokeOperatorRole(address account) external virtual onlyOwner {
+        _revokeRole(OPERATOR, account);
+    }
+
 }
