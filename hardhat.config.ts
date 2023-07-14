@@ -91,11 +91,6 @@ const config: HardhatUserConfig = {
       chainId: 80001,
       url: `https://polygon-testnet.public.blastapi.io`,
     },
-    zkevm: {
-      ...userNetworkConfig,
-      chainId: 1442,
-      url: `https://rpc.public.zkevm-test.net`,
-    },
   },
   namedAccounts: {
     deployer: 0,
