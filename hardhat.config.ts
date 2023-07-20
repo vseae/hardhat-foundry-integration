@@ -110,17 +110,6 @@ const config: HardhatUserConfig = {
     spacing: 2,
     pretty: true,
   },
-  contractSizer: {
-    alphaSort: true,
-    disambiguatePaths: false,
-    runOnCompile: false,
-    strict: true,
-  },
-  gasReporter: {
-    enabled: false,
-    currency: "USD",
-    gasPrice: 21,
-  },
   mocha: {
     timeout: 20000000,
   },
