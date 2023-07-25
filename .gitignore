@@ -7,7 +7,7 @@ typechain-types
 # Compiler files
 out
 cache_forge
-.storage-layouts
+storageLayout
 # Ignores development broadcast logs
 broadcast
 deployments

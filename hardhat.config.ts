@@ -17,9 +17,7 @@ import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
 import "hardhat-abi-exporter";
-import "hardhat-storage-layout";
 import "hardhat-storage-layout-changes";
-
 import "@openzeppelin/hardhat-upgrades";
 //load environment variables from .env file
 dotenv.config();
@@ -58,7 +56,7 @@ const config: HardhatUserConfig = {
     tests: "test",
     deploy: "deploy",
     sources: "contracts",
-    storageLayouts: ".storage-layouts",
+    storageLayouts: "storageLayout",
   },
   solidity: {
     version: "0.8.19",

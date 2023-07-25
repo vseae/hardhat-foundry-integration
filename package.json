@@ -26,9 +26,9 @@
     "verify:sepolia": "hardhat etherscan-verify --network sepolia --license MIT --force-license --api-url https://api-sepolia.etherscan.io/",
     "verify:fantomTest": "hardhat etherscan-verify --network fantomTest --license MIT --force-license --api-key",
     "verify:mumbai": "hardhat etherscan-verify --network mumbai --license MIT --force-license --api-key",
-    "storage-check": "hardhat storage-layout --check",
-    "storage-update": "hardhat storage-layout --update",
-    "storage-export": "hardhat check > .storage-layouts/storage-layout.json"
+    "storage-export": "hardhat clean && hardhat check > storageLayout/storage-layout.log",
+    "update:layout": "yarn hardhat storage-layout --update",
+    "check:layout": "hardhat clean && yarn hardhat storage-layout --check"
   },
   "repository": {
     "type": "git",
@@ -69,9 +69,10 @@
     "hardhat-abi-exporter": "^2.10.1",
     "hardhat-deploy": "^0.11.34",
     "hardhat-deploy-ethers": "^0.4.1",
+    "hardhat-finder": "^3.0.0",
     "hardhat-gas-reporter": "^1.0.9",
     "hardhat-storage-layout": "^0.1.7",
-    "hardhat-storage-layout-changes": "^0.1.2",
+    "hardhat-storage-vault": "^1.2.3",
     "husky": "^8.0.3",
     "prettier": "^2.8.8",
     "prettier-plugin-solidity": "^1.1.3",
