@@ -1,11 +1,26 @@
 import { HttpNetworkUserConfig, HardhatUserConfig } from "hardhat/types";
-import "hardhat-deploy";
-import "@nomicfoundation/hardhat-foundry";
-import "hardhat-abi-exporter";
 import dotenv from "dotenv";
 import yargs from "yargs";
+// tasks
 import "./scripts/tasks/deploy-verify";
 
+// hardhat-deploy
+import "hardhat-deploy";
+import "@nomiclabs/hardhat-ethers";
+// hardhat-plugins
+import "@nomicfoundation/hardhat-foundry";
+import "@nomicfoundation/hardhat-ethers";
+import "@nomicfoundation/hardhat-chai-matchers";
+import "@nomicfoundation/hardhat-network-helpers";
+import "@nomicfoundation/hardhat-verify";
+import "@typechain/hardhat";
+import "hardhat-gas-reporter";
+import "solidity-coverage";
+import "hardhat-abi-exporter";
+import "hardhat-storage-layout";
+import "hardhat-storage-layout-changes";
+
+import "@openzeppelin/hardhat-upgrades";
 //load environment variables from .env file
 dotenv.config();
 const { NODE_URL, INFURA_KEY, MNEMONIC, ETHERSCAN_API_KEY } = process.env;
@@ -27,7 +42,7 @@ if (PK) {
   };
 }
 if (
-  ["mainnet", "rinkeby", "goerli"].includes(argv.network) &&
+  ["mainnet", "sepolia", "goerli"].includes(argv.network) &&
   INFURA_KEY === undefined
 ) {
   throw new Error(
@@ -43,6 +58,7 @@ const config: HardhatUserConfig = {
     tests: "test",
     deploy: "deploy",
     sources: "contracts",
+    storageLayouts: ".storage-layouts",
   },
   solidity: {
     version: "0.8.19",
