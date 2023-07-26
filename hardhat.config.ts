@@ -19,6 +19,7 @@ import "solidity-coverage";
 import "hardhat-abi-exporter";
 import "hardhat-storage-layout-changes";
 import "@openzeppelin/hardhat-upgrades";
+import "hardhat-contract-sizer";
 //load environment variables from .env file
 dotenv.config();
 const { NODE_URL, INFURA_KEY, MNEMONIC, ETHERSCAN_API_KEY } = process.env;
@@ -135,6 +136,12 @@ const config: HardhatUserConfig = {
       signedTx:
         "0xf8a98085174876e800830186a08080b853604580600e600039806000f350fe7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe03601600081602082378035828234f58015156039578182fd5b8082525050506014600cf38401546d71a0d44a4cabccdad4ddfe22d499326d14b70841c51344d42e4bb2bea361a32c0145a02624a8b59c8af43360245d71fcaa7cea2bf1c74b3fad101c6c2ce3e21daedaf9",
     },
+  },
+  contractSizer: {
+    alphaSort: true,
+    disambiguatePaths: false,
+    runOnCompile: true,
+    strict: true,
   },
 };
 if (NODE_URL) {
