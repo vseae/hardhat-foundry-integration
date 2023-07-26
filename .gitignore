@@ -4,6 +4,7 @@ coverage
 coverage.json
 dist
 typechain-types
+.DS_Store
 # Compiler files
 out
 cache_forge
