@@ -9,6 +9,7 @@ typechain-types
 out
 cache_forge
 storageLayout
+.openzeppelin
 # Ignores development broadcast logs
 broadcast
 deployments
