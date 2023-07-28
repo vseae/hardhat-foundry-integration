@@ -7,7 +7,6 @@ import "./scripts/tasks/deploy-verify";
 // hardhat-deploy
 import "hardhat-deploy";
 import "@nomiclabs/hardhat-ethers";
-import "hardhat-deploy-tenderly";
 // hardhat-plugins
 import "@nomicfoundation/hardhat-foundry";
 import "@nomicfoundation/hardhat-ethers";
