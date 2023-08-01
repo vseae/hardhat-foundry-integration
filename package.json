@@ -54,6 +54,7 @@
     "@shopify/eslint-plugin": "^42.0.1",
     "@typechain/ethers-v6": "^0.4.3",
     "@typechain/hardhat": "^8.0.3",
+    "@types/mocha": "^10.0.1",
     "@types/yargs": "^17.0.24",
     "@typescript-eslint/eslint-plugin": "^5.60.0",
     "@typescript-eslint/parser": "^5.60.0",
