@@ -2,7 +2,7 @@
   "name": "hardhat-foundry-integration",
   "version": "1.0.0",
   "description": "solution integrating the Hardhat and Foundry frameworks",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "n": "hardhat node --no-deploy",
     "build": "yarn rimraf build && hardhat compile",

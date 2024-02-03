@@ -96,6 +96,11 @@ const config: HardhatUserConfig = {
       chainId: 11155111,
       url: `https://sepolia.infura.io/v3/${INFURA_KEY}`,
     },
+    arbs: {
+      ...userNetworkConfig,
+      chainId: 421614,
+      url: `https://arbitrum-sepolia.blockpi.network/v1/rpc/public`,
+    },
     fantomTest: {
       ...userNetworkConfig,
       chainId: 4002,
